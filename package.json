@@ -1,0 +1,19 @@
+{
+  "name": "Angular-app",
+  "version": "1.0.0",
+  "description": "Sample Angularjs Node App",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "path": "^0.12.7"
+  },
+  "keywords": [
+    "angularjs-node",
+    "longman-nodejs"
+  ],
+  "author": "krishna",
+  "license": "ISC"
+}

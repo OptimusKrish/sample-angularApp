@@ -1,0 +1,49 @@
+<html>
+  <head> 
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <!-- <script src="./js/myscript.js"></script> -->
+      <script>
+      var app = angular.module('myapp', []);
+
+      app.controller('tron', function($scope, $http) {
+        $scope.loading = false;
+        $scope.dict = false;
+        $scope.error = false;
+        $scope.search = function(name) {
+          $scope.loading = true;
+          $http.get('http://api.pearson.com/v2/dictionaries/entries?search='+name)
+          .then((result) => {
+            $scope.loading = false;
+            $scope.results = (result.data.results.length > 0) ? result.data.results : false;
+            $scope.dict = true;
+          }).catch((err) => {
+            $scope.loading = false;
+            $scope.err = err;
+            $scope.dict = false;
+            $scope.error = true;
+          });
+        }
+      });
+      </script>
+      <title>Sample Angularjs App</title>
+  </head>
+  <body ng-app="myapp">
+    <div ng-controller="tron">
+      <label>Enter word: </label><input type="text" ng-model="word"/>
+      <button ng-click="search(word)">Search</button>
+      <div ng-show="loading">loading...</div>
+       <div ng-show="dict">
+         <ul ng-if="results" ng-repeat="result in results">
+           <li><b>Headword is </b> {{result.headword  || 'Not found'}}</li>
+           <div ng-repeat="def in result.senses">
+             <p> <b>Definition: </b> {{def.definition || 'Not found'}}</p>
+             <p> <b>Translation: </b> {{def.translation || 'Not found'}} </p>
+             <p ng-repeat="exp in def.examples"> <b>Examples: </b> {{exp.text || 'Not found'}}</p>
+            </div> 
+          </ul>
+          <p ng-if="!results" style="color: red;">No results found :-( </p>
+       </div>
+       <div ng-show="error"> Error in rendering results <br />{{err}}</div>
+    </div>
+  </body>
+</html>
