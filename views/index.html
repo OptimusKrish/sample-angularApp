@@ -25,7 +25,7 @@
           </ul>
           <p ng-if="!results" style="color: red;">No results found :-( </p>
       </div>
-       <div ng-show="error"> Error in rendering results <br />{{err}}</div>
+       <div ng-show="error"> <p ng-if="err"> <b>Error in rendering results</b> </p> <p style="color: red;">{{err || 'Wordnik not yet configured'}}</p></div>
     </div>
   </body>
 </html>

@@ -13,9 +13,11 @@
         $scope.loading = false;
         $scope.results = (result.data.results.length > 0) ? result.data.results : false;
         $scope.dict = true;
+        $scope.error = false;
       }).catch((err) => {
         $scope.loading = false;
-        $scope.err = err;
+        // ToDo: Change once Wordnik API is integrated
+        $scope.err = ($scope.dictionary === 'longman') ? err : false;
         $scope.dict = false;
         $scope.error = true;
       });
