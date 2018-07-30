@@ -1,18 +1,23 @@
 <html>
   <head> 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-      <script src="./js/myscript.js"></script>
+      <script src="./public/myscript.js"></script>
       <title>Sample Angularjs App</title>
   </head>
   <body ng-app="myapp">
     <div ng-controller="tron">
-      <label>Enter word: </label><input type="text" ng-model="word"/>
-      <button ng-click="search(word)">Search</button>
+      <div>
+        <label>Enter word: </label><input type="text" ng-model="word"/>
+        <input type="radio" name="gender" value="longman" checked> Longman
+        <input type="radio" name="gender" value="wordnik"> Wordnik
+        <button ng-click="search(word)">Search</button>
+      </div>
       <div ng-show="loading">loading...</div>
       <div ng-show="dict">
         <ul ng-if="results" ng-repeat="result in results">
-          <li ng-if="result.headword"><b>Headword is </b> {{result.headword}}</li>
+          <li ng-if="result.headword"><b>Headword: </b> {{result.headword}}</li>
           <div ng-repeat="def in result.senses">
+            <p ng-if="result.part_of_speech"><b>POS: </b> {{result.part_of_speech}}</p>
             <p ng-if="def.definition"> <b>Definition: </b> {{def.definition}}</p>
             <p ng-if="def.translation"> <b>Translation: </b> {{def.translation}} </p>
             <p ng-if="exp.text" ng-repeat="exp in def.examples"> <b>Examples: </b> {{exp.text}}</p>
