@@ -7,9 +7,9 @@
   <body ng-app="myapp">
     <div ng-controller="tron">
       <div>
-        <label>Enter word: </label><input type="text" ng-model="word"/>
-        <input type="radio" name="gender" value="longman" checked> Longman
-        <input type="radio" name="gender" value="wordnik"> Wordnik
+        <label>Enter word: </label><input type="text" ng-model="word" style="border-radius: 5px;"/>
+        <input type="radio" ng-model="dictionary" name="dictionary" ng-value="'longman'" checked> Longman
+        <input type="radio" ng-model="dictionary" name="dictionary" ng-value="'wordnik'"> Wordnik
         <button ng-click="search(word)">Search</button>
       </div>
       <div ng-show="loading">loading...</div>

@@ -3,9 +3,12 @@
     $scope.loading = false;
     $scope.dict = false;
     $scope.error = false;
+    $scope.dictionary = 'longman';
     $scope.search = function(name) {
+      if(!name) return;
       $scope.loading = true;
-      $http.get('http://api.pearson.com/v2/dictionaries/entries?search='+name)
+      const url = ($scope.dictionary === 'longman') ? 'http://api.pearson.com/v2/dictionaries/entries?search=' : null;
+      $http.get(`${url}${name}`)
       .then((result) => {
         $scope.loading = false;
         $scope.results = (result.data.results.length > 0) ? result.data.results : false;
