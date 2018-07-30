@@ -17,5 +17,5 @@ Step #6 Open this link
 http://localhost:3000/index
 
 <b>Note: </b>
-1. This is a very basic dictionary angularjs App running on 
-2. Nodejs.Longman open API is used.
+1. This is a very basic dictionary angularjs App running on Nodejs
+2. Longman open API is used.
