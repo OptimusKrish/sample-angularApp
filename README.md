@@ -1,19 +1,25 @@
-Step #1 Clone the project 
+Step #1 Clone the project
+
 git clone https://github.com/OptimusKrish/sample-angularApp.git
 
 Step #2 Install Nodejs
+
 https://nodejs.org/en/download/
 
 Step #3 Move to project folder
+
 cd <Projectpath>/
 
 Step #4 Install dependencies
-npm i
+
+<b>npm i </b>
 
 Step #5 Run the app
-npm start
+
+<b>npm start</b>
 
 Step #6 Open this link
+
 http://localhost:3000/index
 
 <b>Note: </b>
